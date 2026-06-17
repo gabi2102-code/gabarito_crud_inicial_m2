@@ -1,21 +1,62 @@
 <?php
-    include("../infra/db/connect.php");
-    if(!isset($_SESSION["usuario"])){
-        header("Location: ../index.php");
-        exit();
-    }
-    if($_SERVER["REQUEST_METHOD"] == "POST"){
-        $usuario = $_POST["usuario"];
-        $senha = $_POST["senha"];
-        $sql = "INSERT INTO users (username, password) VALUES ('$usuario','$senha')";
-        if($conn -> query($sql) === TRUE){
-            echo "<script>alert('Usuário Cadastrado com sucesso!')</script>";
+
+include("../infra/db/connect.php");
+
+if(!isset($_SESSION["usuario"])){
+    header("Location: ../index.php");
+    exit();
+}
+
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+
+    $usuario = trim($_POST["usuario"]);
+    $senha = $_POST["senha"];
+    $confirmar_senha = $_POST["confirmar_senha"];
+
+    if(strlen($usuario) == 0 || strlen($senha) == 0 || strlen($confirmar_senha) == 0){
+
+        echo "<script>alert('Preencha todas as informações para continuar.');</script>";
+
+    }else{
+
+      
+        if(strcmp($senha, $confirmar_senha) !== 0){
+
+            echo "<script>alert('A senha e a confirmação devem ser iguais.');</script>";
+
         }else{
-            echo "<script>alert('Erro Usuário Não Cadastrado!')</script>";
+
+       
+            $buscarUsuario = "SELECT username FROM users WHERE username = '$usuario'";
+            $consulta = $conn->query($buscarUsuario);
+
+            if($consulta->num_rows == 0){
+
+                $cadastro = "INSERT INTO users(username,password)
+                             VALUES('$usuario','$senha')";
+
+                if($conn->query($cadastro)){
+
+                    echo "<script>alert('Cadastro realizado com sucesso!');</script>";
+
+                }else{
+
+                    echo "<script>alert('Erro ao salvar os dados no banco.');</script>";
+
+                }
+
+            }else{
+
+                echo "<script>alert('Nome de usuário indisponível. Escolha outro.');</script>";
+
+            }
         }
     }
+}
+
 ?>
 
+?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
