@@ -83,15 +83,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <input type="password" name="senha">
         <br>
         <br>
+        <label for="confirmar_senha">Confirmar Senha:</label>
+        <input type="password" name="confirmar_senha">
+        <br>
+        <br>
         <button type="submit">Cadastrar</button>
     </form>
     <?php
     
     include("../public/component/table.php");
     ?>
-
-
-    <a href="logout.php">Sair</a>
+    <a href="logout.php" onclick='return confirm(\"Deseja realmente sair do sistema?\")'>Sair</a>
+    
     
 </body>
 </html>

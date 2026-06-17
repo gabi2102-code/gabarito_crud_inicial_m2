@@ -17,18 +17,18 @@
     $sqlUsuarios = "SELECT * FROM users";
 
     $resultadoUsuarios = $conn -> query($sqlUsuarios);
+    
+while($linha = $resultadoUsuarios->fetch_assoc()){
+    echo "<tr>
 
-    while($linha = $resultadoUsuarios->fetch_assoc()){
-        echo "<tr>
-        
-            <td>" . $linha["id"] . "</td>
-            <td>" . $linha["username"] . "</td>
-            <td>" . $linha["password"] . "</td>
-            <td> <a href='editar.php?id=". $linha["id"] ."'>Editar</td>
-            <td> <a href='excluir.php?id=". $linha["id"] ."'>Excluir</td>
-        
-        </tr>";
-    }
+        <td>" . $linha["id"] . "</td>
+        <td>" . $linha["username"] . "</td>
+        <td>" . str_repeat("*", strlen($linha["password"])) . "</td>
+        <td><a href='editar.php?id=". $linha["id"] ."'>Editar</a></td>
+        <td><a href='excluir.php?id=". $linha["id"] ."'>Excluir</a></td>
+
+    </tr>";
+}
     
     ?>
 
