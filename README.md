@@ -1,16 +1,16 @@
-* Sistema de Cadastro de Usuários
-Objetivo do Sistema
+Sistema de Cadastro de Usuários
+* Objetivo do Sistema
 
 Este projeto tem como objetivo realizar o gerenciamento de usuários por meio das operações básicas de CRUD (Create, Read, Update e Delete). O sistema permite realizar login, cadastrar, listar, editar e excluir usuários cadastrados no banco de dados.
 
 Tecnologias Utilizadas
 
-PHP
-MySQL
-CSS
-XAMPP
-phpMyAdmin
-Estrutura das Pastas
+*PHP
+*MySQL
+*CSS
+*XAMPP
+*phpMyAdmin
+*Estrutura das Pastas
 
 O projeto foi organizado em pastas para facilitar a manutenção do código. A pasta infra/db contém o arquivo responsável pela conexão com o banco de dados. A pasta public/component contém componentes reutilizáveis, como a barra de navegação e a tabela de usuários. A pasta public contém as páginas principais do sistema, como login, cadastro, edição e exclusão de usuários. A pasta style contém os arquivos de estilização da aplicação.
 
