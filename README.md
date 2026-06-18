@@ -1,9 +1,10 @@
-Sistema de Cadastro de Usuários
+* Sistema de Cadastro de Usuários
 Objetivo do Sistema
 
 Este projeto tem como objetivo realizar o gerenciamento de usuários por meio das operações básicas de CRUD (Create, Read, Update e Delete). O sistema permite realizar login, cadastrar, listar, editar e excluir usuários cadastrados no banco de dados.
 
 Tecnologias Utilizadas
+
 PHP
 MySQL
 CSS
